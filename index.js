@@ -55,6 +55,7 @@ const main = async () => {
   const cities = ["Dubai", "Sharjah", "Jebel Ali", "Abu Dhabi"];
   const forecasts = await getWeatherForecasts(cities, apiKey);
   console.log(JSON.stringify(forecasts));
+  return forecasts;
 };
 
 main();

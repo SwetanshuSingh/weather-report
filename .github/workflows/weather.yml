@@ -24,7 +24,10 @@ jobs:
           WEATHERAPI_KEY: ${{ secrets.WEATHERAPI_KEY }}
         run: |
           output=$(node index.js)
-          echo "data=$output" >> $GITHUB_OUTPUT
+          
+          echo "data<<EOF" >> $GITHUB_OUTPUT
+          echo "$output" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Send data to Slack
         run: |

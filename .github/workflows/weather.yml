@@ -20,8 +20,10 @@ jobs:
 
       - name: Run weather script
         id: weather
+        env: 
+          WEATHERAPI_KEY: ${{ secrets.WEATHERAPI_KEY }}
         run: |
-          output=$(node weather.js)
+          output=$(node index.js)
           echo "data=$output" >> $GITHUB_OUTPUT
 
       - name: Send data to Slack
